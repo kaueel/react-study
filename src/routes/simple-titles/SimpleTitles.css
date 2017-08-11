@@ -1,0 +1,17 @@
+@import '../../components/variables.css';
+
+.simpleTitleContainer {
+  display: flex;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.simpleTitleSubContainer {
+  margin: auto;
+  width: 80%;
+}
+
+.simpleTitleItem {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
