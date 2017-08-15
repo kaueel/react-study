@@ -17,7 +17,7 @@ class SimpleTitles extends React.Component {
       <div className={s.simpleTitleContainer}>
         <div className={s.simpleTitleSubContainer}>
           {this.props.news.map(item =>
-            <div className={s.simpleTitleItem}>
+            <div key={item.title} className={s.simpleTitleItem}>
               {item.title}
             </div>,
           )}
