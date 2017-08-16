@@ -1,7 +1,6 @@
 import React from 'react';
-import SimpleTitles from './SimpleTitles';
+import Feed from '../../components/Feed/Feed';
 import Layout from '../../components/Layout';
-import axios from 'axios';
 
 async function action({fetch}) {
     const titles = await fetch('/graphql', {
@@ -10,17 +9,16 @@ async function action({fetch}) {
         }),
     });
 
-    fetch('http://localhost:8080/jhoeller/bookmarks')
-        .then(response => response.json())
-        .then(response => console.log(response));
+    const posts = await fetch('http://localhost:8080/posts')
+        .then(response => response.json());
 
     const {data} = await titles.json();
     if (!data || !data.news) throw new Error('Failed to load feed titles');
     return {
-        title: 'SimpleTitles webpage',
+        title: 'Timeline posts',
         component: (
             <Layout>
-                <SimpleTitles news={data.news}/>
+                <Feed posts={posts}/>
             </Layout>
         ),
     };
